@@ -1,10 +1,14 @@
 [
 	{
 		"Name": "google",
-		"Url": "www.google.com"
+		"Url": "https://www.google.com"
 	},
 	{
 		"Name": "naver",
-		"Url": "www.naver.com"
+		"Url": "https://www.naver.com"
+	},
+	{
+		"Name": "test",
+		"Url": "https://www.faerwefafe.com"
 	}
 ]

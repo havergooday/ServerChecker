@@ -30,8 +30,11 @@ namespace ServerChecker
 		private void InitializeComponent()
 		{
 			this.btnRefresh = new System.Windows.Forms.Button();
-			this.sRefrshTime = new System.Windows.Forms.Label();
-			this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+			this.sRefreshTime = new System.Windows.Forms.Label();
+			this.dataGridView = new System.Windows.Forms.DataGridView();
+			this.Status = new System.Windows.Forms.DataGridViewImageColumn();
+			this.Names = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// btnRefresh
@@ -46,31 +49,55 @@ namespace ServerChecker
 			this.btnRefresh.UseVisualStyleBackColor = false;
 			this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
 			// 
-			// sRefrshTime
+			// sRefreshTime
 			// 
-			this.sRefrshTime.AutoSize = true;
-			this.sRefrshTime.Location = new System.Drawing.Point(161, 237);
-			this.sRefrshTime.Name = "sRefrshTime";
-			this.sRefrshTime.Size = new System.Drawing.Size(49, 12);
-			this.sRefrshTime.TabIndex = 1;
-			this.sRefrshTime.Text = "00:00:00";
+			this.sRefreshTime.AutoSize = true;
+			this.sRefreshTime.Location = new System.Drawing.Point(161, 237);
+			this.sRefreshTime.Name = "sRefreshTime";
+			this.sRefreshTime.Size = new System.Drawing.Size(49, 12);
+			this.sRefreshTime.TabIndex = 1;
+			this.sRefreshTime.Text = "00:00:00";
 			// 
-			// checkedListBox1
+			// dataGridView
 			// 
-			this.checkedListBox1.FormattingEnabled = true;
-			this.checkedListBox1.Location = new System.Drawing.Point(12, 9);
-			this.checkedListBox1.Name = "checkedListBox1";
-			this.checkedListBox1.Size = new System.Drawing.Size(260, 180);
-			this.checkedListBox1.TabIndex = 3;
-			this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
+			this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+			this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Status,
+            this.Names});
+			this.dataGridView.Location = new System.Drawing.Point(2, 2);
+			this.dataGridView.Margin = new System.Windows.Forms.Padding(10);
+			this.dataGridView.Name = "dataGridView";
+			this.dataGridView.RowHeadersVisible = false;
+			this.dataGridView.RowHeadersWidth = 60;
+			this.dataGridView.RowTemplate.Height = 32;
+			this.dataGridView.Size = new System.Drawing.Size(278, 184);
+			this.dataGridView.TabIndex = 3;
+			// 
+			// Status
+			// 
+			this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			this.Status.DividerWidth = 1;
+			this.Status.HeaderText = "Status";
+			this.Status.MinimumWidth = 47;
+			this.Status.Name = "Status";
+			this.Status.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+			this.Status.Width = 47;
+			// 
+			// Names
+			// 
+			this.Names.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.Names.HeaderText = "Name";
+			this.Names.Name = "Names";
+			this.Names.Resizable = System.Windows.Forms.DataGridViewTriState.False;
 			// 
 			// Form1
 			// 
 			this.ClientSize = new System.Drawing.Size(284, 261);
-			this.Controls.Add(this.checkedListBox1);
-			this.Controls.Add(this.sRefrshTime);
+			this.Controls.Add(this.dataGridView);
+			this.Controls.Add(this.sRefreshTime);
 			this.Controls.Add(this.btnRefresh);
 			this.Name = "Form1";
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -79,8 +106,10 @@ namespace ServerChecker
 		#endregion
 
 		private System.Windows.Forms.Button btnRefresh;
-		private System.Windows.Forms.Label sRefrshTime;
-		private System.Windows.Forms.CheckedListBox checkedListBox1;
+		private System.Windows.Forms.Label sRefreshTime;
+		private System.Windows.Forms.DataGridView dataGridView;
+		private System.Windows.Forms.DataGridViewImageColumn Status;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Names;
 	}
 }
 
