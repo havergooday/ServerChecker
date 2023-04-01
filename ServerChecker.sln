@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32630.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerChecker", "ServerChecker\ServerChecker.csproj", "{EAC09B93-3E94-465A-9964-D83ACE0A1207}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EAC09B93-3E94-465A-9964-D83ACE0A1207}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAC09B93-3E94-465A-9964-D83ACE0A1207}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAC09B93-3E94-465A-9964-D83ACE0A1207}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAC09B93-3E94-465A-9964-D83ACE0A1207}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0E23A634-3312-46E0-8CC5-C47E02923091}
+	EndGlobalSection
+EndGlobal
