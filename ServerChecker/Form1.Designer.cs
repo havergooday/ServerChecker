@@ -29,19 +29,24 @@ namespace ServerChecker
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.btnRefresh = new System.Windows.Forms.Button();
 			this.sRefreshTime = new System.Windows.Forms.Label();
 			this.dataGridView = new System.Windows.Forms.DataGridView();
 			this.Status = new System.Windows.Forms.DataGridViewImageColumn();
 			this.Names = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.copy = new System.Windows.Forms.Label();
+			this.Refresh = new System.Windows.Forms.Label();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// btnRefresh
 			// 
 			this.btnRefresh.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
 			this.btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnRefresh.Location = new System.Drawing.Point(216, 192);
+			this.btnRefresh.Location = new System.Drawing.Point(224, 192);
 			this.btnRefresh.Name = "btnRefresh";
 			this.btnRefresh.Size = new System.Drawing.Size(56, 57);
 			this.btnRefresh.TabIndex = 0;
@@ -52,7 +57,7 @@ namespace ServerChecker
 			// sRefreshTime
 			// 
 			this.sRefreshTime.AutoSize = true;
-			this.sRefreshTime.Location = new System.Drawing.Point(161, 237);
+			this.sRefreshTime.Location = new System.Drawing.Point(169, 237);
 			this.sRefreshTime.Name = "sRefreshTime";
 			this.sRefreshTime.Size = new System.Drawing.Size(49, 12);
 			this.sRefreshTime.TabIndex = 1;
@@ -90,14 +95,50 @@ namespace ServerChecker
 			this.Names.Name = "Names";
 			this.Names.Resizable = System.Windows.Forms.DataGridViewTriState.False;
 			// 
+			// copy
+			// 
+			this.copy.AutoSize = true;
+			this.copy.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+			this.copy.Location = new System.Drawing.Point(0, 249);
+			this.copy.Name = "copy";
+			this.copy.Size = new System.Drawing.Size(97, 12);
+			this.copy.TabIndex = 4;
+			this.copy.Text = "create by Raven";
+			// 
+			// Refresh
+			// 
+			this.Refresh.AutoSize = true;
+			this.Refresh.Location = new System.Drawing.Point(137, 225);
+			this.Refresh.Name = "Refresh";
+			this.Refresh.Size = new System.Drawing.Size(81, 12);
+			this.Refresh.TabIndex = 5;
+			this.Refresh.Text = "RefreshTime:";
+			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.InitialImage = global::ServerChecker.Properties.Resources.checkedImage;
+			this.pictureBox1.Location = new System.Drawing.Point(31, 192);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(24, 25);
+			this.pictureBox1.TabIndex = 6;
+			this.pictureBox1.TabStop = false;
+			// 
 			// Form1
 			// 
+			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.ClientSize = new System.Drawing.Size(284, 261);
+			this.Controls.Add(this.pictureBox1);
+			this.Controls.Add(this.Refresh);
+			this.Controls.Add(this.copy);
 			this.Controls.Add(this.dataGridView);
 			this.Controls.Add(this.sRefreshTime);
 			this.Controls.Add(this.btnRefresh);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MinimizeBox = false;
 			this.Name = "Form1";
+			this.Text = "ServerChecker";
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -110,6 +151,9 @@ namespace ServerChecker
 		private System.Windows.Forms.DataGridView dataGridView;
 		private System.Windows.Forms.DataGridViewImageColumn Status;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Names;
+		private System.Windows.Forms.Label copy;
+		private System.Windows.Forms.Label Refresh;
+		private System.Windows.Forms.PictureBox pictureBox1;
 	}
 }
 

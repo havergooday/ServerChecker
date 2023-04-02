@@ -16,14 +16,17 @@ namespace ServerChecker
 {
 	public partial class Form1 : Form
 	{
+		List<ServerInfo> servers = new List<ServerInfo>();
 		public Form1()
 		{
 			InitializeComponent();
 
-			// Load custom images
-
-
 			sRefreshTime.Text = DateTime.Now.ToString("hh:mm:ss");
+			CheckData();
+		}
+
+		private void CheckData()
+		{
 			string folderPath = Application.StartupPath;
 			string path = folderPath + "/ServerList.json";
 			if (!File.Exists(path))
@@ -35,18 +38,17 @@ namespace ServerChecker
 			{
 				try
 				{
-					List<ServerInfo> servers = JsonConvert.DeserializeObject<List<ServerInfo>>(File.ReadAllText(path));
+					servers = JsonConvert.DeserializeObject<List<ServerInfo>>(File.ReadAllText(path));
 
 					int index = 0;
+					dataGridView.Rows.Add(servers.Count - 1);
 					foreach (ServerInfo server in servers)
 					{
-						int rowIndex = dataGridView.Rows.Add();
-						dataGridView.Rows[rowIndex].Cells["names"].Value = server.Name;
+						dataGridView.Rows[index].Cells["names"].Value = server.Name;
+						dataGridView.Rows[index].Cells["status"].Value = Properties.Resources.uncheckedImage;
 						CheckServer(index, server.Url);
-						//serverListBox.Items.Add(server.Name);
 						index++;
 					}
-
 				}
 				catch (JsonException ex)
 				{
@@ -93,7 +95,24 @@ namespace ServerChecker
 		private void btnRefresh_Click(object sender, EventArgs e)
 		{
 			sRefreshTime.Text = DateTime.Now.ToString("hh:mm:ss");
+			RefreshData();
+		}
 
+		private void RefreshData()
+		{
+			foreach (DataGridViewRow row in dataGridView.Rows)
+			{
+				row.Cells["status"].Value = Properties.Resources.uncheckedImage;
+			}
+
+			int index = 0;
+			foreach (ServerInfo server in servers)
+			{
+				dataGridView.Rows[index].Cells["names"].Value = server.Name;
+				dataGridView.Rows[index].Cells["status"].Value = Properties.Resources.uncheckedImage;
+				CheckServer(index, server.Url);
+				index++;
+			}
 		}
 	}
 
