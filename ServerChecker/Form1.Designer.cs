@@ -29,6 +29,7 @@ namespace ServerChecker
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.btnRefresh = new System.Windows.Forms.Button();
 			this.sRefreshTime = new System.Windows.Forms.Label();
@@ -36,10 +37,12 @@ namespace ServerChecker
 			this.Status = new System.Windows.Forms.DataGridViewImageColumn();
 			this.Names = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.copy = new System.Windows.Forms.Label();
-			this.Refresh = new System.Windows.Forms.Label();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.TrayButton = new System.Windows.Forms.Button();
+			this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+			this.TrayTime = new System.Windows.Forms.TextBox();
+			this.TimerInfo = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// btnRefresh
@@ -99,36 +102,57 @@ namespace ServerChecker
 			// 
 			this.copy.AutoSize = true;
 			this.copy.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-			this.copy.Location = new System.Drawing.Point(0, 249);
+			this.copy.Location = new System.Drawing.Point(0, 237);
 			this.copy.Name = "copy";
 			this.copy.Size = new System.Drawing.Size(97, 12);
 			this.copy.TabIndex = 4;
 			this.copy.Text = "create by Raven";
 			// 
-			// Refresh
+			// TrayButton
 			// 
-			this.Refresh.AutoSize = true;
-			this.Refresh.Location = new System.Drawing.Point(137, 225);
-			this.Refresh.Name = "Refresh";
-			this.Refresh.Size = new System.Drawing.Size(81, 12);
-			this.Refresh.TabIndex = 5;
-			this.Refresh.Text = "RefreshTime:";
+			this.TrayButton.Image = global::ServerChecker.Properties.Resources.minimize;
+			this.TrayButton.Location = new System.Drawing.Point(2, 204);
+			this.TrayButton.Name = "TrayButton";
+			this.TrayButton.Size = new System.Drawing.Size(32, 32);
+			this.TrayButton.TabIndex = 6;
+			this.TrayButton.UseVisualStyleBackColor = true;
+			this.TrayButton.Click += new System.EventHandler(this.button1_Click);
 			// 
-			// pictureBox1
+			// contextMenuStrip
 			// 
-			this.pictureBox1.InitialImage = global::ServerChecker.Properties.Resources.checkedImage;
-			this.pictureBox1.Location = new System.Drawing.Point(31, 192);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(24, 25);
-			this.pictureBox1.TabIndex = 6;
-			this.pictureBox1.TabStop = false;
+			this.contextMenuStrip.Name = "contextMenuStrip1";
+			this.contextMenuStrip.Size = new System.Drawing.Size(61, 4);
+			this.contextMenuStrip.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip_Opening);
+			// 
+			// notifyIcon
+			// 
+			this.notifyIcon.ContextMenuStrip = this.contextMenuStrip;
+			this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+			// 
+			// TrayTime
+			// 
+			this.TrayTime.Location = new System.Drawing.Point(40, 213);
+			this.TrayTime.Name = "TrayTime";
+			this.TrayTime.Size = new System.Drawing.Size(21, 21);
+			this.TrayTime.TabIndex = 7;
+			// 
+			// TimerInfo
+			// 
+			this.TimerInfo.AutoSize = true;
+			this.TimerInfo.Location = new System.Drawing.Point(62, 220);
+			this.TimerInfo.Name = "TimerInfo";
+			this.TimerInfo.Size = new System.Drawing.Size(23, 12);
+			this.TimerInfo.TabIndex = 8;
+			this.TimerInfo.Text = "/분";
 			// 
 			// Form1
 			// 
 			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.ClientSize = new System.Drawing.Size(284, 261);
-			this.Controls.Add(this.pictureBox1);
-			this.Controls.Add(this.Refresh);
+			this.ClientSize = new System.Drawing.Size(284, 252);
+			this.ContextMenuStrip = this.contextMenuStrip;
+			this.Controls.Add(this.TimerInfo);
+			this.Controls.Add(this.TrayTime);
+			this.Controls.Add(this.TrayButton);
 			this.Controls.Add(this.copy);
 			this.Controls.Add(this.dataGridView);
 			this.Controls.Add(this.sRefreshTime);
@@ -138,7 +162,6 @@ namespace ServerChecker
 			this.Name = "Form1";
 			this.Text = "ServerChecker";
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -152,8 +175,11 @@ namespace ServerChecker
 		private System.Windows.Forms.DataGridViewImageColumn Status;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Names;
 		private System.Windows.Forms.Label copy;
-		private System.Windows.Forms.Label Refresh;
-		private System.Windows.Forms.PictureBox pictureBox1;
+		private System.Windows.Forms.Button TrayButton;
+		private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+		private System.Windows.Forms.NotifyIcon notifyIcon;
+		private System.Windows.Forms.TextBox TrayTime;
+		private System.Windows.Forms.Label TimerInfo;
 	}
 }
 
